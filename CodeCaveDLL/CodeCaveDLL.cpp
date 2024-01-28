@@ -32,7 +32,7 @@ BOOL WINAPI DllMain(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpvReserved) {
 	DWORD old_protect;
 	unsigned char* hook_location = (unsigned char*)0x00CCAF8A;
 	if (fdwReason == DLL_PROCESS_ATTACH) {
-		MessageBox(0, 0, 0, 0);
+		MessageBox(0, L"Hack injected!\nright-click > terrain description\n\nby: KeesOG", L"Inject successful", 0);
 		VirtualProtect((void*)hook_location, 6, PAGE_EXECUTE_READWRITE, &old_protect);
 		*hook_location = 0xE9;
 		*(DWORD*)(hook_location + 1) = (DWORD)&codecave - (DWORD)(hook_location + 5);
